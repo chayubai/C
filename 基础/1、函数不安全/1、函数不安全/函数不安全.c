@@ -28,13 +28,13 @@ void main()
 /******这是一种过时的写法******/
 
 /*问题：在屏幕上打印“hello world！--你好，世界！”*/
-//#include <stdio.h>//使用printf函数，引用此头文件
-//int main()
-//{
-//	printf("hello world!--你好，世界！\n");
-// 
-//	return 0;
-//}
+#include <stdio.h>//使用printf函数，引用此头文件
+int main()
+{
+	printf("hello world!--你好，世界！\n");
+ 
+	return 0;
+}
 //解读：
 //printf函数-print function：报错“printf未定义”，printf是C语言提供的一个库函数--打印函数，如果要使用printf时，需要引用头文件stdio.h--standard input output，即，包含一个叫stdio.h的文件
 //编译+链接+运行代码：Ctrl+F5/Fn+Ctrl+F5，或者单击“调试”选项卡，选择“开始执行（不调试）”
@@ -48,16 +48,16 @@ void main()
 //3、vs报错函数还有，scanf、strcpy、strcat、sscanf、fopen...这些函数不安全
 
 /*问题：为什么函数不安全*/
-//#define _CRT_SECURE_NO_WARNINGS 1
-//#include <stdio.h>
-//int main()
-//{
-//	char arr[5] = { 0 };//arr数组中只能放5个字符
-//	scanf("%s",arr);//输入的时候超过5个字符
-//	printf("%s\n",arr);
-//
-//	return 0;
-//}
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int main()
+{
+	char arr[5] = { 0 };//arr数组中只能放5个字符
+	scanf("%s",arr);//输入的时候超过5个字符
+	printf("%s\n",arr);
+
+	return 0;
+}
 
 //当输入大于5个字符时，报错Run-Time Check Failure #2 - Stack around the variable 'arr' was corrupted.“空间被破坏，数组越界访问”
 //函数或变量不安全的原因：scanf函数对空间的读取，不关心空间大小，把所有的输入字符全部放入arr数组，arr数组越界，栈空间被破坏所以scanf函数不安全，即没有空间越界判断
@@ -71,15 +71,15 @@ void main()
 //5、在创建项目的时候关闭安全提示：“文件”选项卡，单击“新建”，选择“项目”后，选择以“控制台应用”创建源文件，单击“下一步”，取消勾选“预编译头”和“安全开发生命周期检查”，单击“完成”，注意：此方法虽然会出现警告，但不会报错，不影响运行
 
 //其他函数的不安全报错例子，解决方案同理
-//#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1
 
-//#include <stdio.h>
-//#include <string.h>
-//int main()
-//{
-//	char arr[10] = { 0 };
-//	strcpy(arr, "hello");//拷贝hello，放入arr中，使用strcpy函数，需要引用#include <string.h>头文件
-//	printf("%s\n", arr);
-//
-//	return 0;
-//}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char arr[10] = { 0 };
+	strcpy(arr, "hello");//拷贝hello，放入arr中，使用strcpy函数，需要引用#include <string.h>头文件
+	printf("%s\n", arr);
+
+	return 0;
+}
