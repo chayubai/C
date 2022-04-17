@@ -28,7 +28,6 @@ int main()
 //%lf打印双精度浮点数
 
 //问题：每一种类型的大小是多少？
-/*
 #include <stdio.h>
 int main()
 {
@@ -43,7 +42,6 @@ int main()
 
 	return 0;
 }
-*/
 //解读：
 //sizeof()：计算数据类型或者变量所占空间的大小，单位：字节byte
 //C语言标准规定：sizeof(long) >= sizeof(int)，故long类型所占字节因计算机而异。
