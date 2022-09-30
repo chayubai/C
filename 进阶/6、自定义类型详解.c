@@ -168,9 +168,9 @@
 //#include <stdio.h>
 //struct S3
 //{
-//	double d;
-//	char c;
-//	int i;
+//	double d;0-7
+//	char c;8  9-11
+//	int i;12-15  0-15一共16个字节，由于16是最大对齐数的整数倍，所以S3的大小就是16字节
 //};
 //练习4
 //struct S4
