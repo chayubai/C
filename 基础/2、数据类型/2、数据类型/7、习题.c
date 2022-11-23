@@ -14,14 +14,16 @@
 //正确结果D.局部变量所在的局部范围
 
 /*3、下面代码输出的结果是：*/
-//#include <stdio.h>
-//int num = 10； 
-//int main()
-//{
-//	int num = 1;
-//	printf("num = %d\n", num);
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int num = 10； 
+int main()
+{
+	int num = 1;
+	printf("num = %d\n", num);
+	return 0;
+}
+*/
 //A.程序有问题，不能编译
 //正确结果B.输出1
 //C.输出10
@@ -32,6 +34,7 @@
 //B.是EOF
 //正确结果C.是'\0'
 //D.是空格
+
 /*区分：'\0', 0, '0', EOF*/
 // '\0' 转义字符，ASCII码值为0
 //   0  数字0，相当于'\0'
@@ -39,14 +42,16 @@
 //  EOF end of file 文件结束标志，值为：-1
 
 /*5、下面代码的结果是：*/
-//#include <stdio.h>
-//int main()
-//{
-//	char arr[] = { 'b','i','t' };
-//	printf("%d\n", strlen(arr));
-//
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	char arr[] = { 'b','i','t' };
+	printf("%d\n", strlen(arr));
+
+	return 0;
+}
+*/
 //A.3
 //B.4
 //正确结果C.随机值
@@ -72,45 +77,52 @@
 //VS2019不支持C99标准中的变长数组
 
 /*9、下面程序的结果是：*/
-//#include <stdio.h>
-//#include <string.h>
-//int main()
-//{
-//	printf("%d\n", strlen("C:\test\121"));
-//	return 0;
-//}
+/*
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	printf("%d\n", strlen("C:\test\121"));
+	return 0;
+}
+*/
 //正确结果A.7
 //B.8
 //C.9
 //D.10
 
 /*10、写一个函数求两个数中的较大值*/
-//int main()
-//{
-//	int num1 = 10;
-//	int num2 = 20;
-// if(num1 > num2)
-//		printf("较大值是：%d\n", num1);
-// else
-//		printf("较大值是：%d\n", num2);
-//	return 0;
-//}
+/*
+int main()
+{
+	int num1 = 10;
+	int num2 = 20;
+ if(num1 > num2)
+		printf("较大值是：%d\n", num1);
+ else
+		printf("较大值是：%d\n", num2);
+	return 0;
+}
+*/
+
 /*------------------------------------*/
-//#include <stdio.h>
-//int max(int x, int y)
-//{
-//	if (x > y)
-//		return x;
-//	else
-//		return y;
-//}
+/*
+#include <stdio.h>
+int max(int x, int y)
+{
+	if (x > y)
+		return x;
+	else
+		return y;
+}
 //一般不建议把函数名写成全大写
-//int main()
-//{
-//	int a = 0;
-//	int b = 0;
-//	scanf("%d %d", &a, &b);
-//	int m = max(a, b);
-//	printf("max = %d\n", m);
-//	return 0;
-//}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d %d", &a, &b);
+	int m = max(a, b);
+	printf("max = %d\n", m);
+	return 0;
+}
+*/
