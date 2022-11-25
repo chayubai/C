@@ -10,8 +10,8 @@ int main()
 {
 	//auto--自动的，每个局部变量都是auto修饰的
 	{
-		int a = 10;//a（局部变量一般）自动创建，自动销毁 --自动变量，一般都省去auto
-		auto int a = 10;
+		int a = 10;//a（局部变量一般）在栈上自动创建，自动销毁 --自动变量，一般都省去auto
+		//auto int a = 10;
 	}
 	return 0;
 }
@@ -26,6 +26,7 @@ int main()
 //enum：枚举关键字
 //extern：声明//引入外部符号
 //goto：goto语句
+
 //register：寄存器关键字
 /*
 #include <stdio.h>
@@ -39,18 +40,21 @@ int main()
 	return 0;
 }
 */
+
 //signed：有符号的，unsigned：无符号的
 /*
 #include <stdio.h>
 int main()
 {
-	int a = 10;//int定义的变量是有符号的，原型为signed int
-	signed int a = 10；
+	//int a = 10;//int定义的变量是有符号的，原型为signed int，默认是有符号类型，signed可以省略
+	signed int a = 10;
 	a = -2;
-	unsigned int num = -1;//num的结果仍为1
+	unsigned int num = -1;
+	printf("%d\n", num);//num的结果仍为-1
 	return 0;
 }
 */
+
 //static：静态的，是用来修饰变量和函数的
 //1、static修饰局部变量-静态局部变量--改变了变量的生命周期
 //2、static修饰全局变量-静态全局变量--改变了变量的作用域
@@ -176,8 +180,10 @@ int main()
 //static修饰函数，改变了函数的链接属性，使得函数只能再自己所在的源文件内部使用，不能在其他源文件内部使用
 //本质上：普通函数具有外部链接属性，static是将函数的外部链接属性变成了内部链接属性（和static修饰全局变量一样）
 */
+
 //struct：结构体关键字
 //switch：switch-case语句
+
 //typedef：类型定义/类型重命名--type define
 /*
 #include <stdio.h>
@@ -190,6 +196,7 @@ int main()
 	return 0;
 }
 */
+
 //union：联合体/共用体
 //void：空/无
 //volatile：提升C语言段位的关键字
@@ -200,7 +207,7 @@ int main()
 //1、define定义标识符常量
 #define MAX 1000
 //2、define定义宏
-#define ADD(x,y) ((x)+(y))//宏ADD(x,y)被替换成 ((x)+(y))--(x)和（y）是两个表达式
+#define ADD(x,y) ((x)+(y))//宏ADD(x,y)被替换成 ((x)+(y))	--(x)和（y）是两个表达式
 #define SUM(a,b) a+b//宏ADD(a,b)被替换成 a+b
 #include <stdio.h>
 int mian()
@@ -232,7 +239,7 @@ int main()
 {
 	int a = 10;
 	int b = 20;
-	int max = Max(a, b);
+	int max = max(a, b);
 	printf("max = %d\n",max);
 
 	return 0;
