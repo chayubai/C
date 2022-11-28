@@ -6,7 +6,7 @@
 /*
 #include <stdio.h>
 int main()
-{
+{ 
 	;//¿ÕÓï¾ä
 	return 0;
 }
