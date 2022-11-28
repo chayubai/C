@@ -10,7 +10,7 @@ int main()
 	scanf("%d", &day);
 	if (1 == day)//当常量和变量比较时，常量在左边比较好
 		printf("星期一\n");
-	else if (2 == day)
+	else if (2 == day) 
 		printf("星期二\n");
 	else if (3 == day)
 		printf("星期三\n");
