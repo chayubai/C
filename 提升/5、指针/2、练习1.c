@@ -61,7 +61,18 @@
 //B.函数中的形式参数是在栈中保存
 //C.在一个函数内定义的变量只在本函数范围内有效
 //正确答案D.在一个函数内复合语句中定义的变量在本函数范围内有效(复合语句指函数中的成对括号构成的代码)
-//注意：复合语句中定义的static修饰的变量，同样出来复合语句也无效
+//注意：复合语句中定义的static修饰的变量，同样出了复合语句也无效，static只延长生命周期，不改变作用域。
+/*
+#include <stdio.h>
+int main()
+{
+	{
+		static int a = 10;
+	}
+	printf("a = %d\n", a);//报错
+	return 0;
+}
+*/
 
 //11、关于一维数组初始化，下面哪个定义是错误的？
 //A.int arr[10] = {1,2,3,4,5,6};
@@ -88,35 +99,40 @@
 //D.a[2][1]
 
 //15、下面代码的结果是：
-//#include <stdio.h>
-//int main()
-//{
-//	int arr[] = { 1,2,(3,4),5 };
-//	printf("%d\n",sizeof(arr));
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	int arr[] = { 1,2,(3,4),5 };
+	printf("%d\n",sizeof(arr));
+	return 0;
+}
+*/
 //A.4
 //正确答案B.16
 //C.20
 //D.5
 
 //15、下面代码的结果是：
-//#include <stdio.h>
-//#include <string.h>
-//int main()
-//{
-//	char str[] = "hello bit";
-//	printf("%d %d\n", sizeof(str),strlen(str));
-//	return 0;
-//}
+/*
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char str[] = "hello bit";
+	printf("%d %d\n", sizeof(str),strlen(str));
+	return 0;
+}
+*/
 //正确答案A.10 9
 //B.9 9
 //C.10 10
 //D.9 10
 
 //16、给出以下定义：？？？
-//char acX[] = "abcdefg";
-//char acY[] = {'a','b','c','d','e','f','g'};
+/*
+	char acX[] = "abcdefg";
+	char acY[] = {'a','b','c','d','e','f','g'};*/
 //以下说法正确的是：
 //A.数组acX和数组acY等价
 //B.数组acX和数组acY的长度相同
@@ -127,87 +143,121 @@
 //A.数组的下标是从0开始的
 //B.数组在内存中是连续存放的
 //C.数组名表示首元素的地址
-//正确答案D.随着数组下标的由小到大，地址由高到低
+//正确答案D.随着数组下标的由小到大，地址由高到低//由低到高
 
 //18、实现一个整型数组的冒泡排序
+/*
+#include <stdio.h>
+void sort(int arr[], int sz)
+{
+	int flag = 0;
+	for (int i = 0; i < sz - 1; i++)
+	{
+		for (int j = 0; j < sz - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+				flag = 1;
+			}
+		}
+		if (flag == 0)
+			break;
+	}
+}
+int main()
+{
+	int arr[] = { -9, 0, 4, 8, 9 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	sort(arr, sz);
+	for (int i = 0; i < sz; i++)
+		printf("%d ", arr[i]);
+	return 0;
+}
+*/
 
 //19、创建一个整型数组，完成对数组的操作
 //1、实现函数Init()初始化数组为全0
 //2、实现Print()打印数组的每一个元素
 //3、实现Everse()函数完成数组元素的逆置
-//
-//void Init(int* arr,int sz)
-//{//1、实现函数Init()初始化数组为全0
-//	int i = 0;
-//	for (i = 0; i < sz; i++)
-//	{
-//		*(arr + i) = 0;//相当与*arr++  = 0;//此方法形参为int* arr,int sz
-//		//arr[i] = 0;//此方法形参int arr[],int sz
-//	}
-//}
-//void Print(int arr[],int sz)
-//{//2、实现Print()打印数组的每一个元素
-//	int i = 0;
-//	for (i = 0; i < sz; i++)
-//	{
-//		printf("%d ",arr[i]);
-//	}
-//}
-//void Everse(int arr[],int sz)
-//{//3、实现Everse()函数完成数组元素的逆置
-//	int left = 0;
-//	int right = sz - 1;
-//	int i = 0;
-//	while (left < right)
-//	{
-//		int tmp = 0;
-//		tmp = arr[left];
-//		arr[left] = arr[right];
-//		arr[right] = tmp;
-//		left++;
-//		right--;
-//	}
-//}
-//#include <stdio.h>
-//int main()
-//{
-//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-//	int sz = sizeof(arr) / sizeof(arr[0]);
-//	//Init(arr,sz);
-//	//Print(arr,sz);
-//	//由于函数内已经封装了打印操作，故可以直接调用，直接输出，而这样写是错误的printf(Print(arr,sz))
-//	Everse(arr,sz);
-//	Print(arr, sz);
-//	return 0;
-//}
+/*
+void Init(int* arr,int sz)
+{//1、实现函数Init()初始化数组为全0
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		*(arr + i) = 0;//相当与*arr++  = 0;//此方法形参为int* arr,int sz
+		//arr[i] = 0;//此方法形参int arr[],int sz
+	}
+}
+void Print(int arr[],int sz)
+{//2、实现Print()打印数组的每一个元素
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ",arr[i]);
+	}
+}
+void Everse(int arr[],int sz)
+{//3、实现Everse()函数完成数组元素的逆置
+	int left = 0;
+	int right = sz - 1;
+	int i = 0;
+	while (left < right)
+	{
+		int tmp = 0;
+		tmp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = tmp;
+		left++;
+		right--;
+	}
+}
+#include <stdio.h>
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	//Init(arr,sz);
+	//Print(arr,sz);
+	//由于函数内已经封装了打印操作，故可以直接调用，直接输出，而这样写是错误的printf(Print(arr,sz))
+	Everse(arr,sz);
+	Print(arr, sz);
+	return 0;
+}
+*/
 
 //20、将数组A中的内容和数组B中的内容进行交换（数组一样大）
-//#include <stdio.h>
-//int main()
-//{
-//	int arr1[] = { 1,2,3,4,5 };
-//	int arr2[] = { 6,7,8,9,10 };
-//	int sz = sizeof(arr1) / sizeof(arr1[0]);
-//	int i = 0;
-//	for (i = 0; i < sz; i++)
-//	{
-//		int tmp = 0;
-//		tmp = arr1[i];
-//		arr1[i] = arr2[i];
-//		arr2[i] = tmp;
-//	}
-//	//通过调试也可以观察到元素之间的交换
-//	for (i = 0; i < sz; i++)
-//	{
-//		printf("%d ", arr1[i]);
-//	}
-//	printf("\n");
-//	for (i = 0; i < sz; i++)
-//	{
-//		printf("%d ", arr2[i]);
-//	}
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	int arr1[] = { 1,2,3,4,5 };
+	int arr2[] = { 6,7,8,9,10 };
+	int sz = sizeof(arr1) / sizeof(arr1[0]);
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		int tmp = 0;
+		tmp = arr1[i];
+		arr1[i] = arr2[i];
+		arr2[i] = tmp;
+	}
+	//通过调试也可以观察到元素之间的交换
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr1[i]);
+	}
+	printf("\n");
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr2[i]);
+	}
+	return 0;
+}
+*/
 
 //21、关于表达式求值说法不正确的是：
 //A.表达式求值先看是否存在整型提升或算术转换，再进行计算
@@ -216,21 +266,23 @@
 //正确答案D.只要有了优先级和结合性，表达式就能求出唯一值
 
 //22、下面代码的结果是：
-//#include <stdio.h>
-//int main()
-//{
-//	int i = 1;
-//	int ret = (++i) + (++i) + (++i);
-//	printf("ret = %d\n", ret);
-//	return 0;
-//}
-//A.10
-//B.12
-//C.9
+/*
+#include <stdio.h>
+int main()
+{
+	int i = 1;
+	int ret = (++i) + (++i) + (++i);
+	printf("ret = %d\n", ret);
+	return 0;
+}
+*/
+//A.10 
+//B.12 //4 4 4
+//C.9  //2 3 4
 //正确答案D.程序错误
 
 //23、关于的概念，错误的是：
-//A.指针是便浏览，用来存放地址
+//A.指针是变量，用来存放地址
 //B.指针变量中存放的有效地址可以唯一指向内存中的一块区域
 //正确答案C.野指针也可以正常使用
 //D.局部指针变量不初始化就是野指针
@@ -242,77 +294,98 @@
 //D.32位下：4，4，2^32	64位下：4，4，2^64
 
 //25、下面代码的结果是：
-//#include <stdio.h>
-//int main()
-//{
-//	int arr[] = { 1,2,3,4,5 };
-//	short* p = (short*)arr;
-//	int i = 1;
-//	for (i = 0; i < 4; i++)//循环了四次
-//	{
-//		*(p + i) = 0;
-//	}
-//	for (i = 0; i < 5; i++)//循环了五次
-//	{
-//		printf("%d ", arr[i]);
-//	}
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	int arr[] = { 1,2,3,4,5 };
+	short* p = (short*)arr;
+	int i = 1;
+	for (i = 0; i < 4; i++)//循环了四次
+	{
+		*(p + i) = 0;
+	}
+	for (i = 0; i < 5; i++)//循环了五次
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
+*/
 //A.1 2 3 4 5
 //正确答案B.0 0 3 4 5
 //C.0 0 0 0 5
 //D.1 0 0 0 0
 
 //26、下面代码输出的结果是：
-//#include <stdio.h>
-//int main()
-//{
-//	int a = 0x11223344;//四个字节：内存存放的顺序是44 33 22 11
-//	char* pc = (char*)&a;
-//	*pc = 0;//由于pc是char*类型，解引用只能操作一个字节
-//	printf("%x\n ", a);//%x - 十六进制形式打印
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	int a = 0x11223344;//四个字节：内存中存放的顺序是44 33 22 11
+	char* pc = (char*)&a;//pc指向的是a的地址，即44的前面所在位置
+	*pc = 0;//由于pc是char*类型，解引用只能操作一个字节
+	printf("%x\n ", a);//%x - 十六进制形式打印，打印的时候还原顺序
+	return 0;
+}
+*/
 //A.00223344
 //B.0
 //正确答案C.11223300
 //D.112233
 
+//算术转换
+//如果某个操作符的各个操作数属于不同的类型，那么除非其中一个操作数的转换为另一个操作数的类型，否则操作就无法进行。
+//下面的层次体系称为寻常算术转换。即占字节小的类型可以转为占字节大的类型，精度小的可以转为精度大的
+//long double
+//double
+//float
+//unsigned long int
+//long int
+//unsigned int
+//int
+//如果某个操作数的类型在上面这个列表中排名较低，那么首先要转换为另外一个操作数的类型后执行运算。
+//如：两个long int 和int类型的数进行运算，会隐式将int类型的数据转为long int类型。
 //27、下面代码输出的结果是：
-//#include <stdio.h>
-//int i;//全局变量-不初始化默认赋初值0
-//int main()
-//{
-//	i--;//-1
-//	if (i > sizeof(i))//sizeof(i) = 4，计算变量/类型所占内存的大小，即恒大于等于0，亦为无符号数
-//	{//将-1转换为无符号数，
-//	 //-1的补码：11111111 11111111 11111111 111111111
-//	 //转为无符号数：11111111 11111111 11111111 111111111 > 4
-//		printf(">\n");
-//	}
-//	else
-//	{
-//		printf("<\n");
-//	}
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int i;//全局变量-不初始化默认赋初值0
+int main()
+{
+	i--;//-1
+	if (i > sizeof(i))//sizeof(i) = 4，计算变量/类型所占内存的大小，即恒大于等于0，也就是无符号数
+	{//将-1转换为无符号数，
+	 //-1的原码：10000000 00000000 00000000 000000001
+	 //-1的补码：11111111 11111111 11111111 111111111
+	 //转为无符号数：11111111 11111111 11111111 111111111 > 4
+		printf(">\n");
+	}
+	else
+	{
+		printf("<\n");
+	}
+	return 0;
+}
+*/
 //正确答案A.>
 //B.<
 //C.不输出
 //D.程序有问题
 
 //28、下面代码输出的结果是：
-//#include <stdio.h>
-//int main()
-//{
-//	int a, b, c;
-//	a = 5;
-//	c = ++a;//c = 6,a = 6
-//	b = ++c, c++, ++a, a++;//c = 8,b = a++ = 7,a = 8
-//	b += a++ + c;//a = 9,c = 8,b = 8 + 8 + 7
-//	printf("a = %d b = %d c = %d\n", a, b, c);
-//	return 0;
-//}
+/*
+#include <stdio.h>
+int main()
+{
+	int a, b, c;
+	a = 5;
+	c = ++a;//c = 6,a = 6
+	b = ++c, c++, ++a, a++;//c = 8,b = a++ = 7,a = 8
+	b += a++ + c;//a = 9,c = 8,b = 8 + 8 + 7
+	printf("a = %d b = %d c = %d\n", a, b, c);
+	return 0;
+}
+*/
 //A.a = 8 b = 23 c = 8
 //正确答案B.a = 9 b = 23 c = 8
 //C.a = 9 b = 25 c = 8
