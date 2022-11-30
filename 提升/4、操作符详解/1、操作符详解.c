@@ -5,7 +5,7 @@
 //ËãÊõ²Ù×÷·û£º+ - * / %
 /*
 #include <stdio.h>
-int main()
+int main() 
 {
 	int a = 5 / 2;//ÉÌ2
 	printf("%d\n", a);
