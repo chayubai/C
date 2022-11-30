@@ -474,7 +474,7 @@ int main()
 //返回值类型是int型
 //Return Value
 //Each of these functions returns the number of characters printed, or a negative value if an error occurs.
-//返回打印的字符的个数
+//返回打印的字符的个数(对应的字节数)。如果是一个中文字符，则返回2。也就是说，返回打印的字节数。不包括\0字符
 //printf("%d", 43)的结果打印43，打印了两个字符，返回值是2
 //printf("%d",printf("%d",43))的结果打印2，打印了一个字符，返回值是1
 //printf("%d",printf("%d",printf("%d",43)))的结果打印1
