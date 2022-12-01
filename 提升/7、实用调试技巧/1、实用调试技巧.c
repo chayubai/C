@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//调试相关的知识
+//调试相关的知识 
 //1、调试版本：
 //前提：代码加system("pause")和对应的头文件#include <stdlib.h>
 //创建一个源文件，当为Debug时，
