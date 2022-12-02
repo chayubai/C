@@ -2,7 +2,7 @@
 //作业：
 //1、下列程序段的输出结果为：
 /*
-#include <stdio.h>
+#include <stdio.h> 
 int main()
 {
 	unsigned long pulArray[] = { 6,7,8,9,10 }; 
