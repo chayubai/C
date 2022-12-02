@@ -6,7 +6,7 @@
 //注意：字符串常量适用于那些对它不做修改的字符串函数.
 /*
 #include <stdio.h>
-int main()
+int main() 
 {
 	char *p1 = "abcdef";//"abcdef"是一个常量字符串，即将字符串的首元素的地址赋值给p1，而不是将字符串放入p1中
 	//*p1 = 'W';//因为"abcdef"是常量字符串，是不允许修改的，故如果修改程序会崩溃 ---Linux下报错：Segment fault段错误
