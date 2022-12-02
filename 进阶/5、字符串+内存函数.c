@@ -200,7 +200,7 @@ int main()
 	char arr1[] = "abcdefghi";
 	//错误示范
 	//char arr2[] = {'b','i','t'};
-	char arr2[] = "bit";
+	char arr2[] = "bit";//或者char* arr2 = "bit";
 	my_strcpy(arr1, arr2);//注意：这里传入的是数组名，即首元素地址，是传址调用
 	printf("%s\n", arr1);//注意arr1的地址没有变化，dest的地址变化了，只是一开始都是指向相同的地址。
 	return 0;

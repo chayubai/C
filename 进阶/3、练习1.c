@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-
+ 
 //9. 指针和数组面试题的解析
 #include <stdio.h>
 #include <string.h>
-/*
+/*  
 int main()
 {
 	//一维数组
