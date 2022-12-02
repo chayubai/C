@@ -14,7 +14,7 @@ int main()
 {
 	printf("%d\n", sizeof(AA_t));
 	return 0;
-}
+} 
 */
 //A¡¢16
 //B¡¢9
