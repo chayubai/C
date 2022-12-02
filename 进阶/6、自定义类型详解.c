@@ -8,7 +8,7 @@
 /*
 	struct tag结构体名称
 	{
-		member - list//成员变量声明列表
+		member - list//成员变量声明列表 
 	}variable-list;//结构体变量列表;
 */
 
